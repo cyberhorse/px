@@ -22,4 +22,20 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function map()
+	{
+		$this->load->model('User_model');
+		$this->load->model('Share_model');
+
+		if ($this->input->post('name')) {
+			$this->User_model->insert();
+		}
+
+		$data = array(
+            'records' => $this->Share_model->get()
+        );
+        
+		$this->load->view('map', $data);
+	}
 }
