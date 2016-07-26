@@ -36,7 +36,6 @@
 		</button>	
 	</div>
 
-	<button type="button" class="btn btn-default navbar-btn pull-right" onclick="$('#login').removeClass('hidden')">Sign in</button>
 	<button type="button" class="btn btn-default navbar-btn pull-right">Your mood</button>
 	<a href="/share/add" class="ajax">
 		<button type="button" class="btn btn-default navbar-btn pull-right">Share</button>
@@ -53,6 +52,10 @@
 			</li>
 			<li>
 				<a href="/welcome/map" class="ajax"><span class="badge badge-green">3</span> Recovery</a>
+			</li>
+
+			<li>
+				<a href="#" class="ajax" onclick="$('#login').removeClass('hidden')">Sign in</a>
 			</li>
 
 		</ul>
