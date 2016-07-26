@@ -30,18 +30,37 @@ function share_fb(url) {
 }
 
 
+var onFail = function(e) {
+    console.log('Rejected!', e);
+};
+
+var onSuccess = function(s) {
+    var context = new webkitAudioContext();
+    var mediaStreamSource = context.createMediaStreamSource(s);
+    recorder = new Recorder(mediaStreamSource);
+    recorder.record();
+
+    // audio loopback
+    // mediaStreamSource.connect(context.destination);
+}
+
+window.URL = window.URL || window.webkitURL;
+navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+var recorder;
+var audio = document.querySelector('audio');
+
 function recordAudio() {
-    window.AudioContext = window.AudioContext ||
-                      window.webkitAudioContext;
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({audio: true}, onSuccess, onFail);
+    } else {
+        console.log('navigator.getUserMedia not present');
+    }
+}
 
-    var context = new AudioContext();
-
-    navigator.getUserMedia({audio: true}, function(stream) {
-    var microphone = context.createMediaStreamSource(stream);
-    var filter = context.createBiquadFilter();
-
-    // microphone -> filter -> destination.
-    microphone.connect(filter);
-        filter.connect(context.destination);
+function stopRecording() {
+    recorder.stop();
+    recorder.exportWAV(function(s) {
+        audio.src = window.URL.createObjectURL(s);
     });
 }
