@@ -43,5 +43,5 @@ function recordAudio() {
     // microphone -> filter -> destination.
     microphone.connect(filter);
         filter.connect(context.destination);
-    }, errorCallback);
+    });
 }
