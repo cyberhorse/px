@@ -1,7 +1,7 @@
 <h1>Share Experience</h1>
 <div class="row">
     <div class="col-md-2">
-        <a href="/share/text" class="ajax btn btn-lg btn-default btn-block">
+        <a href="/share/video" class="ajax btn btn-lg btn-default btn-block">
             <i class="fa fa-video-camera fa-2x"></i>
         </a>
     </div>
@@ -16,7 +16,7 @@
         </a>
     </div>
     <div class="col-md-2">
-        <a href="/share/text" class="ajax btn btn-lg btn-default btn-block">
+        <a href="/share/audio" class="ajax btn btn-lg btn-default btn-block">
             <i class="fa fa-volume-up fa-2x"></i>
         </a>
     </div>
