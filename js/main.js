@@ -28,3 +28,20 @@ function getTarget(el) {
 function share_fb(url) {
     window.open('https://www.facebook.com/sharer/sharer.php?u='+url,'facebook-share-dialog',"width=626,height=436")
 }
+
+
+function recordAudio() {
+    window.AudioContext = window.AudioContext ||
+                      window.webkitAudioContext;
+
+    var context = new AudioContext();
+
+    navigator.getUserMedia({audio: true}, function(stream) {
+    var microphone = context.createMediaStreamSource(stream);
+    var filter = context.createBiquadFilter();
+
+    // microphone -> filter -> destination.
+    microphone.connect(filter);
+        filter.connect(context.destination);
+    }, errorCallback);
+}
