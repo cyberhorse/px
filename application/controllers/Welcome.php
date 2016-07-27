@@ -23,6 +23,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function login()
+	{
+		$this->load->view('login');
+	}
+
 	public function map()
 	{
 		$this->load->model('User_model');
