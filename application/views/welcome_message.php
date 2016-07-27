@@ -22,19 +22,11 @@
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top" role="navigation">
 
 <div id="container">
-
 	<a href="/welcome/login">
-		<div id="summary" class="jumbotron">
-			<h1>Welcome</h1>
-			
-			<p><a href="#accordion" class="btn btn-primary btn-lg" role="button">Learn more</a></p>
-		</div>
+		<img src="images/1-home.jpg" class="full" />
 	</a>
- 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds.</p>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
